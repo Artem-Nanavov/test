@@ -1,0 +1,19 @@
+@import "../../Mixins"
+
+.network
+  cursor: pointer
+  width: 264px
+  padding: 16px 8px
+  @include display( grid )
+  @include grid-row-gap( 24px )
+  background: #FFFFFF
+  border: 1px solid #CBCBCB
+  box-sizing: border-box
+  border-radius: 5px
+
+  & p
+    font-style: normal
+    font-weight: 500
+    font-size: 14px
+    line-height: 17px
+    color: #4E4646
