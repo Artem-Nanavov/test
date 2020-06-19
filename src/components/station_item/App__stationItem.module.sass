@@ -1,0 +1,40 @@
+@import "../../Mixins"
+
+.station
+  @include position( relative )
+  width: 264px
+  padding: 16px 8px
+  min-height: 67px
+  background: #FFFFFF
+  border: 1px solid #CBCBCB
+  box-sizing: border-box
+  border-radius: 5px
+
+  @include display( flex )
+  @include align-items( center )
+  @include justify-content( center )
+
+  font-style: normal
+  font-weight: 500
+  font-size: 14px
+  line-height: 17px
+  color: #4E4646
+
+  &__star, &__star_active
+    cursor: pointer
+    @include display( none )
+    width: 16px
+    height: 16px
+    @include position( absolute )
+    top: 16px
+    right: 8px
+
+  &__star
+    fill: #B0ADA2
+
+  &__star_active
+    fill: #FFBF00
+
+  &:hover
+    .station__star, .station__star_active
+      @include display( block )

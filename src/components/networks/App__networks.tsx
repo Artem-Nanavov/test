@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from "react-redux"
 import { getNetworks } from "../../store/actions/networkAction"
+import { getStations } from "../../store/actions/stationsAction"
 
 //========================================
 
@@ -9,19 +10,32 @@ import App__networkItem from "../network_item/App__networkItem";
 
 interface IProps {
     dispatch: any
-    networks: any[]
+    network: any
+    station: any
 }
 
-const App__networks = ({ dispatch, networks }: IProps ) => {
+const App__networks = ({ dispatch, network, station }: IProps ) => {
+    const [ onesRequest, setOnesRequest ] = useState< string >( '' )
+
     useEffect( () => {
         dispatch( getNetworks() )
     }, [] )
 
+    useEffect( () => {
+        if ( network.isGet ) {
+            dispatch( getStations({ id: network.networks[ 0 ].id }) )
+
+            setOnesRequest( network.networks[ 0 ].id )
+        }
+    }, [ network.isGet ] )
+
     return (
         <div className={ s.networks } >
             {
-                networks.map( ( item: any, i: number ) => (
+                network.networks.map( ( item: any, i: number ) => (
                     <App__networkItem
+                        onesRequest={ onesRequest }
+                        setOnesRequest={ setOnesRequest }
                         key={ i }
                         id={ item.id }
                         company={ item.company }
@@ -35,7 +49,8 @@ const App__networks = ({ dispatch, networks }: IProps ) => {
 
 const mapStateToProps = ( store: any ) => {
     return {
-        networks: store.network.networks
+        network: store.network,
+        station: store.station
     }
 }
 
