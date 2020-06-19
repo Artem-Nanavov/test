@@ -10,11 +10,17 @@ import App__networkItem from "../network_item/App__networkItem";
 
 interface IProps {
     dispatch: any
-    network: any
-    station: any
+    network: IStore
 }
 
-const App__networks = ({ dispatch, network, station }: IProps ) => {
+interface IStore {
+    networks: any[],
+    isError: boolean,
+    isFetching: boolean
+    isGet: boolean
+}
+
+const App__networks = ({ dispatch, network }: IProps ) => {
     const [ onesRequest, setOnesRequest ] = useState< string >( '' )
 
     useEffect( () => {
@@ -31,18 +37,20 @@ const App__networks = ({ dispatch, network, station }: IProps ) => {
 
     return (
         <div className={ s.networks } >
-            {
-                network.networks.map( ( item: any, i: number ) => (
-                    <App__networkItem
-                        onesRequest={ onesRequest }
-                        setOnesRequest={ setOnesRequest }
-                        key={ i }
-                        id={ item.id }
-                        company={ item.company }
-                        location={ item.location }
-                    />
-                ) )
-            }
+            <div className={ s.networks__wrap } >
+                {
+                    network.networks.map( ( item: any, i: number ) => (
+                        <App__networkItem
+                            onesRequest={ onesRequest }
+                            setOnesRequest={ setOnesRequest }
+                            key={ i }
+                            id={ item.id }
+                            company={ item.company }
+                            location={ item.location }
+                        />
+                    ) )
+                }
+            </div>
         </div>
     )
 }
@@ -50,7 +58,6 @@ const App__networks = ({ dispatch, network, station }: IProps ) => {
 const mapStateToProps = ( store: any ) => {
     return {
         network: store.network,
-        station: store.station
     }
 }
 

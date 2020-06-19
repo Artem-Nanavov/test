@@ -1,0 +1,49 @@
+@import "../../../Mixins";
+
+:root {
+  --sk-size: 80px;
+}
+
+.skFlow {
+  width: calc(var(--sk-size) * 2);
+  height: calc(var(--sk-size) * 2);
+  @include display(flex);
+  @include justify-content(space-between);
+}
+
+.skFlowDot {
+  width: 25px;
+  height: 25px;
+  background-color: var(--sk-color);
+  border-radius: 50%;
+  @include animation(sk-flow 1.4s cubic-bezier(0.455, 0.03, 0.515, 0.955) 0s infinite both);
+}
+
+.skFlowDot:nth-child(1) {
+  animation-delay: -0.30s;
+}
+
+.skFlowDot:nth-child(2) {
+  animation-delay: -0.15s;
+}
+
+@keyframes sk-flow {
+  0%, 80%, 100% {
+    @include transform(scale(0.5));
+  }
+  40% {
+    @include transform(scale(1.1));
+  }
+}
+
+.color_1 {
+  --sk-color: #733CE2;
+}
+
+.color_2 {
+  --sk-color: #ED5992;
+}
+
+.color_3 {
+  --sk-color: #733CE2;
+}

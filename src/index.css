@@ -7,7 +7,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-overflow-style: none;
+  -moz-osx-overflow-style: none;
 }

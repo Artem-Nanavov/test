@@ -2,5 +2,10 @@
 
 .networks
   overflow: auto
-  @include display( grid )
-  @include grid-row-gap( 24px )
+  @include display( flex )
+  @include justify-content( center )
+
+  &__wrap
+    @include display( grid )
+    @include grid-row-gap( 24px )
+    height: 100%

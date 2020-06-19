@@ -1,5 +1,10 @@
 @import "../../Mixins"
 
 .stations
-  @include display( grid )
-  @include grid-row-gap( 24px )
+  overflow: auto
+  @include display( flex )
+  @include justify-content( center )
+
+  &__wrap
+    @include display( grid )
+    @include grid-row-gap( 24px )

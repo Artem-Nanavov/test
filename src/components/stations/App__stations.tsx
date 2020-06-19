@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { connect } from "react-redux"
 
 //==================================
@@ -20,15 +20,17 @@ interface IStore {
 const App__stations = ({ station }: IProps ) => {
     return (
         <div className={ s.stations } >
-            {
-                station.stations.map( item => (
-                    <App__stationItem
-                        key={ item.id }
-                        id={ item.id }
-                        name={ item.name }
-                    />
-                ) )
-            }
+            <div className={ s.stations__wrap } >
+                {
+                    station.stations.map( item => (
+                        <App__stationItem
+                            key={ item.id }
+                            id={ item.id }
+                            name={ item.name }
+                        />
+                    ) )
+                }
+            </div>
         </div>
     )
 }
