@@ -23,20 +23,24 @@ interface ILocation {
 }
 
 const App__networkItem = ({ dispatch, id, company, location, onesRequest, setOnesRequest }: IProps ) => {
-
-    console.log( "id", id )
-    console.log( "onesRequest", onesRequest )
-
     const requestStations = () => {
         if ( onesRequest !== id ) {
             dispatch( getStations({ id }) )
 
             setOnesRequest( id )
+
+            let elem = document.getElementById( id )
+
+            if ( elem )
+                elem.scrollTo({
+                    top: 100,
+                    left: 0
+                })
         }
     }
 
     return (
-        <div onClick={ requestStations } className={ s.network } >
+        <div onClick={ requestStations } id={ id } className={ onesRequest === id ? s.network_active : s.network } >
             <p> Company - { company } </p>
 
             <p> City - { location.city } </p>

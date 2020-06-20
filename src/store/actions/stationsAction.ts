@@ -2,7 +2,9 @@ import axios from 'axios'
 import {
     STATIONS_REQUEST,
     STATIONS_SUCCESS,
-    STATIONS_FAIL
+    STATIONS_FAIL,
+
+    STATION_SET
 } from "../constants/stations"
 
 interface IProps {
@@ -29,3 +31,5 @@ export const getStations = ({ id }: IProps ) => {
         }
     }
 }
+
+export const setFavoriteStation = ({ id }: IProps ) => ({ type: STATION_SET, id })

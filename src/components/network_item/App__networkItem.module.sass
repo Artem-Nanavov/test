@@ -1,13 +1,12 @@
 @import "../../Mixins"
 
-.network
+.network, .network_active
   cursor: pointer
   width: 264px
   padding: 16px 8px
   @include display( grid )
   @include grid-row-gap( 24px )
   background: #FFFFFF
-  border: 1px solid #CBCBCB
   box-sizing: border-box
   border-radius: 5px
 
@@ -16,4 +15,13 @@
     font-weight: 500
     font-size: 14px
     line-height: 17px
-    color: #4E4646
+
+.network
+  border: 1px solid #DEDEDE
+
+  color: #AB9696
+
+.network_active
+  border: 1px solid #AC9A9A
+
+  color: #4E4646
