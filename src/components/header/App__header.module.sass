@@ -4,4 +4,19 @@
   @include position( fixed )
   width: 100vw
   height: 48px
-  background-color: grey
+  background-color: #43C577
+  @include display( flex )
+  @include justify-content( center )
+
+  &__info
+    max-width: 1146px
+    height: 100%
+    @include display( flex )
+    @include align-items( center )
+
+    & p
+      font-style: normal
+      font-weight: 500
+      font-size: 18px
+      line-height: 22px
+      color: #FFFFFF

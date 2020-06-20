@@ -19,7 +19,7 @@ interface IStore {
 
 const App__stations = ({ station }: IProps ) => {
     return (
-        <div>
+        <div style={{ overflow: 'auto' }} >
             <div className={ s.stations } >
                 <div className={ s.stations__wrap } >
                     {

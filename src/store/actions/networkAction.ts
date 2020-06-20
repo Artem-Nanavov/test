@@ -1,8 +1,9 @@
 import axios from 'axios'
 import {
-    NETWORK_REQUEST,
     NETWORK_SUCCESS,
-    NETWORK_FAIL
+    NETWORK_FAIL,
+
+    SET_NAME_NETWORK
 } from "../constants/network"
 
 const URL = `https://api.citybik.es/v2/networks?fields=id,company,location`
@@ -24,3 +25,9 @@ export const getNetworks = (): any => {
         }
     }
 }
+
+interface IProps {
+    networkName: string
+}
+
+export const setCheckedNetwork = ({ networkName }: IProps ): any => ({ type: SET_NAME_NETWORK, networkName })
