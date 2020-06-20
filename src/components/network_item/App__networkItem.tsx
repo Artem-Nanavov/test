@@ -1,6 +1,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import { getStations } from "../../store/actions/stationsAction"
+import { setCheckedNetwork } from "../../store/actions/networkAction"
 
 //===================================================
 
@@ -26,16 +27,9 @@ const App__networkItem = ({ dispatch, id, company, location, onesRequest, setOne
     const requestStations = () => {
         if ( onesRequest !== id ) {
             dispatch( getStations({ id }) )
+            dispatch( setCheckedNetwork({ networkName: company }) )
 
             setOnesRequest( id )
-
-            let elem = document.getElementById( id )
-
-            if ( elem )
-                elem.scrollTo({
-                    top: 100,
-                    left: 0
-                })
         }
     }
 
